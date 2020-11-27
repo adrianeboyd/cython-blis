@@ -157,12 +157,14 @@ class ExtensionBuilder(distutils.command.build_ext.build_ext, build_ext_options)
         except:
             has_skx = False
 
-        if has_znver2:
+        if has_znver2 and has_skx:
             return "x86_64"
-        elif has_skx:
+        elif not has_znver2 and has_skx:
             return "x86_64_no_znver2"
-        else:
+        elif not has_skx:
             return "x86_64_no_skx"
+        else:
+            return "generic"
     
     def get_compiler_name(self):
         if "BLIS_COMPILER" in os.environ:
