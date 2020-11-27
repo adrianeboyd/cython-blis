@@ -136,7 +136,7 @@ class ExtensionBuilder(distutils.command.build_ext.build_ext, build_ext_options)
         elif sys.platform != "linux":
             return "x86_64"
 
-        # Linux:
+        # Linux
         machine = platform.machine()
         if machine == "aarch64":
             return "cortexa57"
@@ -145,7 +145,8 @@ class ExtensionBuilder(distutils.command.build_ext.build_ext, build_ext_options)
         elif machine != "x86_64":
             return "generic"
 
-        # Try to detect whether compiler flags are available
+        ## Linux x86_64
+        # Try to detect which compiler flags are available
         has_znver2 = True
         try:
             subprocess.check_call(" ".join(self.compiler.compiler) + " -march=znver2 -E -xc - -o -", stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, shell=True)
