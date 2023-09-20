@@ -11,4 +11,4 @@ build-backend = "setuptools.build_meta"
 
 [[tool.cibuildwheel.overrides]]
 select = "*-macosx_arm64"
-environment = { BLIS_ARCH="generic" BLIS_COMPILER="clang -arch arm64" }
+environment = { BLIS_ARCH="generic", BLIS_COMPILER="clang -arch arm64" }
