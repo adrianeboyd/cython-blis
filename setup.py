@@ -26,6 +26,7 @@ MOD_NAMES = ["blis.cy", "blis.py"]
 
 print("BLIS_COMPILER?", os.environ.get("BLIS_COMPILER", "None"))
 print("SPACY_NUM_BUILD_JOBS?", os.environ.get("SPACY_NUM_BUILD_JOBS", "None"))
+print("PIP_CONSTRAINT?", os.environ.get("PIP_CONSTRAINT", "None"))
 
 
 def clean(path):
